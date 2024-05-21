@@ -1,5 +1,8 @@
 <?php
-require_once 'includes/database.php';
+    session_start();
+    require_once 'includes/database.php';
+    require_once 'includes/register-inc.php';
+//    require_once 'includes/login-inc.php';
 ?>
 
 <!DOCTYPE html>
@@ -14,9 +17,9 @@ require_once 'includes/database.php';
 <header>
     <nav>
         <ul>
-            <li><a href="/index.php" >Home</a></li>
-            <li><a href="/login.php" >Log in</a></li>
-            <li><a href="/register.php" >Register</a></li>
+            <li><a href="index.php" >Home</a></li>
+            <li><a href="login.php" >Log in</a></li>
+            <li><a href="register.php" >Register</a></li>
         </ul>
     </nav>
 </header>
