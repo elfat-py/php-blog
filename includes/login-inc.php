@@ -50,9 +50,11 @@ if (isset($_POST['submit'])) {
                     }else {
                         $_SESSION['isAdmin'] = false; // Should give value to false otherwise it will show us the content
                         $_SESSION['loggedIn'] = true;
-                        $_SESSION['sessionId'] = $row['user_ID'];
-                        $_SESSION['sessionUser'] = $row['username'];
 
+                        $_SESSION['sessionUser'] = $row['username'];
+                        $_SESSION['email'] = $row['email'];
+                        $_SESSION['fullName'] = $row['user_full_name'];
+                        $_SESSION['age'] = $row['age'];
 
                         header("Location: ../user.php?success=user.php");
                         exit();
