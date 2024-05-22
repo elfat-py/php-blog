@@ -1,12 +1,16 @@
 <?php
 if (isset($_POST['submit'])) {
     require 'database.php';
+    $full_name = $_POST['full-name'];
     $username = $_POST['username'];
+    $email = $_POST['email'];
+    $age = $_POST['age'];
     $password = $_POST['password'];
     $password_conf = $_POST['password-confirm'];
     $email = $_POST['email'];
+    $role = 0;
 
-    if (empty($_POST['username']) || empty($_POST['name']) || empty($_POST['password']) || empty($_POST['email']) || empty($_POST['password-confirm']))  {
+    if (empty($_POST['username']) || empty($_POST['full-name']) || empty($_POST['password']) || empty($_POST['email']) || empty($_POST['password-confirm']))  {
         header('Location: ../register.php?error=emptyfields&username='.$username);
         exit();
     }
@@ -21,10 +25,10 @@ if (isset($_POST['submit'])) {
     elseif (empty($_POST['password-confirm'])) {
          echo 'You should confirm the password.';
     }else{
-        $sql = 'SELECT USERNAME FROM USERS WHERE USERNAME=?';
+        $sql = 'SELECT username FROM user WHERE username=?';
         $stmt = mysqli_stmt_init($conn);
         if (!mysqli_stmt_prepare($stmt, $sql)){
-            header('Location: ../register.php?error=sqlerror&username='.$username);
+            header('Location: ../register.php?error=sqlerror&username1='.$username);
         }else{
             mysqli_stmt_bind_param($stmt, 's', $username);
             mysqli_stmt_execute($stmt);
@@ -35,7 +39,8 @@ if (isset($_POST['submit'])) {
                 header('Location: ../register.php?error=usernametaken&username='.$username);
                 exit();
             }else{
-                $sql = "INSERT INTO users (username, password) VALUES (?, ?)";
+
+                $sql = "INSERT INTO user(user_full_name, username, email, age, password, role) VALUES (?, ?, ?, ?, ?, ?)";
                 $stmt = mysqli_stmt_init($conn);
 
                 if (!mysqli_stmt_prepare($stmt, $sql)){
@@ -44,8 +49,10 @@ if (isset($_POST['submit'])) {
                 }else{
                     $hashedPass = password_hash($password, PASSWORD_DEFAULT);
 
-                    mysqli_stmt_bind_param($stmt, 'ss', $username, $hashedPass);
+                    mysqli_stmt_bind_param($stmt, 'sssisi', $full_name, $username, $email, $age, $hashedPass, $role);
                     mysqli_stmt_execute($stmt);
+                    mysqli_stmt_store_result($stmt);
+
                     header('Location: ../register.php?success=registered&username='.$username);
                     exit();
                 }

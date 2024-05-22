@@ -16,7 +16,7 @@ if (isset($_POST['submit'])) {
 //        exit();
 //        echo $password;
 //        echo $username;
-        $sql = "SELECT * FROM users WHERE username = ?";
+        $sql = "SELECT * FROM user WHERE username = ?";
         $stmt = mysqli_stmt_init($conn);
         if (!mysqli_stmt_prepare($stmt, $sql)) {
             header("Location: ../index.php?error=sqlerror");
@@ -30,7 +30,7 @@ if (isset($_POST['submit'])) {
 //                foreach ($row as $key => $value){
 //                    echo $key . ':' . $value . '<br>';
 //                }
-                $passCheck = password_verify($password, $row['PASSWORD']);
+                $passCheck = password_verify($password, $row['password']);
 
 //                echo $passCheck . 'THe result';
 
@@ -44,13 +44,15 @@ if (isset($_POST['submit'])) {
                     if ($_SESSION['sessionRole'] == 1)
                     {
                         $_SESSION['isAdmin'] = true;
+                        $_SESSION['email'] = $row['email'];
                         header("Location: ../admin.php?success=loggedasadmin");
                         exit();
                     }else {
                         $_SESSION['isAdmin'] = false; // Should give value to false otherwise it will show us the content
                         $_SESSION['loggedIn'] = true;
-                        $_SESSION['sessionId'] = $row['ID'];
-                        $_SESSION['sessionUser'] = $row['USERNAME'];
+                        $_SESSION['sessionId'] = $row['user_ID'];
+                        $_SESSION['sessionUser'] = $row['username'];
+
 
                         header("Location: ../user.php?success=user.php");
                         exit();
