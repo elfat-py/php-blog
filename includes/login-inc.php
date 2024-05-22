@@ -26,23 +26,38 @@ if (isset($_POST['submit'])) {
             mysqli_stmt_execute($stmt);
             $result = mysqli_stmt_get_result($stmt);
             if ($row = mysqli_fetch_assoc($result)) {
-                foreach ($row as $key => $value){
-                    echo $key . ':' . $value . '<br>';
-                }
+
+//                foreach ($row as $key => $value){
+//                    echo $key . ':' . $value . '<br>';
+//                }
                 $passCheck = password_verify($password, $row['PASSWORD']);
-                echo $passCheck . 'THe result';
+
+//                echo $passCheck . 'THe result';
 
                 if ($passCheck == false) {
                     header("Location: ../index.php?error=wrongpassword");
                     exit();
                 }elseif ($passCheck == true) {
                     session_start();
-                    $_SESSION['sessionId'] = $row['id'] ;
-                    $_SESSION['sessionUser'] = $row['USERNAME'];
-                    header("Location: ../index.php?success=loginsuccess");
-                    exit();
+                    $_SESSION['sessionRole'] = $row['role'];
+
+                    if ($_SESSION['sessionRole'] == 1)
+                    {
+                        $_SESSION['isAdmin'] = true;
+                        header("Location: ../admin.php?success=loggedasadmin");
+                        exit();
+                    }else {
+                        $_SESSION['isAdmin'] = false; // Should give value to false otherwise it will show us the content
+                        $_SESSION['loggedIn'] = true;
+                        $_SESSION['sessionId'] = $row['ID'];
+                        $_SESSION['sessionUser'] = $row['USERNAME'];
+
+                        header("Location: ../user.php?success=user.php");
+                        exit();
+                    }
                 }else{
                     header("Location: ../index.php?error=nouser");
+                    exit();
                 }
             }else{
                 header("Location: ../index.php?error=nouser");
