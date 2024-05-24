@@ -75,15 +75,19 @@ if (isset($_SESSION['isAdmin']) && $_SESSION['isAdmin'] == true) {
         $age = $_POST['age'];
         $password = $_POST['password'];
         $passwordConfirm = $_POST['confirm-pass'];
-        $role = 0;
-        echo 'hereee';
-
-
+        if ($_POST['isAdmin'] == 'Yes') {
+            $role = 1;
+        }elseif ($_POST['isAdmin'] == 'No'){
+            $role = 0;
+        }else{
+            header('Location: ../add-new.php?error=chooseadmprivilige&username=' . $username);
+            exit();
+        }
 
         $sql = 'SELECT username FROM user WHERE username=?';
         $stmt = mysqli_stmt_init($conn);
         if (!mysqli_stmt_prepare($stmt, $sql)) {
-            header('Location: ../register.php?error=sqlerror&username1=' . $username);
+            header('Location: ../add-new.php?error=sqlerror&username1=' . $username);
         } else {
             mysqli_stmt_bind_param($stmt, 's', $username);
             mysqli_stmt_execute($stmt);

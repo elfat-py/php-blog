@@ -18,22 +18,22 @@ else{
 
 
     <div class="row align-items-start d-flex align-items-start mb-2 bg-body-tertiary gap-0 row-gap-0">
-        <div class="col-1 border border-light-subtle mb-2 bg-black text-white">
+        <div class="col-1 bg-primary-subtle border border-primary-subtle rounded-2">
             ID
         </div>
-        <div class="col-2 border border-light-subtle mb-2 bg-black text-white">
+        <div class="col-2 border bg-bs-primary-rgb border border-primary-subtle rounded-2">
             Username
         </div>
-        <div class="col-2 border border-light-subtle mb-2 bg-black text-white">
+        <div class="col-2 border bg-bs-primary-rgb border border-primary-subtle rounded-2">
             Full Name
         </div>
-        <div class="col-3 border border-light-subtle mb-2 bg-black text-white">
+        <div class="col-3 border bg-bs-primary-rgb border border-primary-subtle rounded-2">
             Email
         </div>
-        <div class="col-1 border border-light-subtle mb-2 bg-black text-white">
+        <div class="col-1 border bg-bs-primary-rgb border border-primary-subtle rounded-2">
             Age
         </div>
-        <div class="col-1 border border-light-subtle mb-2 bg-black text-white">
+        <div class="col-1 border bg-bs-primary-rgb border border-primary-subtle rounded-2">
             Role
         </div>
         <div class="col-2 border border-light-subtle bg-secondary-subtle text-secondary-emphasisk-emphasis">
@@ -56,7 +56,7 @@ else{
                 $age = $row['age'];
                 $role = $row['role'];
         ?>
-        <div class="col-1 border border-light-subtle mb-2 bg-black text-white">
+        <div class="col-1 bg-primary-subtle border border-primary-subtle rounded-2">
             <?php
             if (isset($_SESSION['isAdmin']) && $_SESSION['isAdmin'] == true) {
                 echo $user_Id;
@@ -65,7 +65,7 @@ else{
             }
             ?>
         </div>
-        <div class="col-2 border border-light-subtle mb-2 bg-black text-white">
+        <div class="col-2 bg-gray-500 border border-gray-500 rounded-1">
             <?php
             if (isset($_SESSION['isAdmin']) && $_SESSION['isAdmin'] == true) {
                 echo $username;
@@ -74,7 +74,7 @@ else{
             }
             ?>
         </div>
-        <div class="col-2 border border-light-subtle mb-2 bg-black text-white">
+        <div class="col-2 bg-gray-500 border border-gray-500 rounded-1">
             <?php
             if (isset($_SESSION['isAdmin']) && $_SESSION['isAdmin'] == true) {
                 echo $user_full_name;
@@ -83,7 +83,7 @@ else{
             }
             ?>
         </div>
-        <div class="col-3 border border-light-subtle mb-2 bg-black text-white">
+        <div class="col-3 bg-gray-500 border border-gray-500 rounded-1">
             <?php
             if (isset($_SESSION['isAdmin']) && $_SESSION['isAdmin'] == true) {
                 echo $email;
@@ -92,7 +92,7 @@ else{
             }
             ?>
         </div>
-        <div class="col-1 border border-light-subtle mb-2 bg-black text-white">
+        <div class="col-1 bg-gray-500 border border-gray-500 rounded-1">
             <?php
             if (isset($_SESSION['isAdmin']) && $_SESSION['isAdmin'] == true) {
                 echo $age;
@@ -101,7 +101,7 @@ else{
             }
             ?>
         </div>
-        <div class="col-1 border border-light-subtle mb-2 bg-black text-white">
+        <div class="col-1 bg-gray-500 border border-gray-900 rounded-1">
             <?php
             if (isset($_SESSION['isAdmin']) && $_SESSION['isAdmin'] == true) {
                 echo $role;
@@ -112,13 +112,11 @@ else{
         </div>
 
         <div class="col-1 border border-light-subtle bg-dark-subtle text-dark-emphasis">
-            <a href="includes/edit.php">Edit</a>
+            <a href="includes/edit.php?user_ID=<?php echo $user_Id; ?>" class="link-dark">Edit<i class="fa-solid fa-pen-to-square fs-5 me-3"></i></a>
         </div>
         <div class="col-1 border border-light-subtle bg-dark-subtle text-dark-emphasis">
-<!--            <a href="includes/edit.php">Delete</a>-->
-            <a href="delete.php?user_ID=<?php echo $user_Id; ?>" class="link-dark">Delete<i class="fa-solid fa-pen-to-square fs-5 me-3"></i></a>
+            <a href="includes/delete.php?user_ID=<?php echo $user_Id; ?>" class="link-dark">Delete<i class="fa-solid fa-pen-to-square fs-5 me-3"></i></a>
         </div>
-
         <!-- END OF DATA ROW-->
 
         <?php

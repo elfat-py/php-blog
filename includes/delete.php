@@ -1,4 +1,5 @@
 <?php
+    chdir('..');
     require_once 'includes/header.php';
 
 ?>
