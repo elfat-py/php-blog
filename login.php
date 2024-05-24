@@ -2,24 +2,26 @@
     require_once 'includes/header.php';
 ?>
 
-<form action="includes/login-inc.php" method="post">
-    <input name="username1" placeholder="Enter username">
-    <input name="password1" type="password" placeholder="Enter password">
-    <button type="submit" name="submit" >Log in</button>
-</form>
-    <?php
-    if (isset($_GET['error'])) {
-        if ($_GET['error'] == 'emptyfields') {
-            echo '<p>Fill in all fields!</p>';
-        } elseif ($_GET['error'] == 'sqlerror') {
-            echo '<p>SQL error!</p>';
-        } elseif ($_GET['error'] == 'wrongpassword') {
-            echo '<p>Wrong password!</p>';
-        } elseif ($_GET['error'] == 'nouser') {
-            echo '<p>No user found!</p>';
-        }
-    }
-    ?>
+<!--<form action="includes/login-inc.php" method="post">-->
+<!--    <input name="username1" placeholder="Enter username">-->
+<!--    <input name="password1" type="password" placeholder="Enter password">-->
+<!--    <button type="submit" name="submit" >Log in</button>-->
+<!--</form>-->
+<!---->
+
+<div class="auth-form-container">
+    <h1 class="auth-welcome">User log in page</h1>
+
+    <form method="post" action="includes/login-inc.php">
+        <div class="auth-container">
+            <label for="username">Username</label>
+            <input type="text" name="username1" id="username" required>
+            <label for="password">Password</label>
+            <input type="password" name="password1" id="password" required>
+            <input type="submit"  name="submit" value="Log In">
+        </div>
+    </form>
+</div>
 <?php
     require_once 'includes/footer.php';
 ?>

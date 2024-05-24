@@ -1,22 +1,33 @@
 <?php
     require_once 'includes/header.php';
 ?>
+<div class="auth-form-container">
+    <h1 class="auth-welcome">User registration page</h1>
+
+    <form method="post" action="includes/register-inc.php">
+        <div class="auth-container">
+            <label for="name">Full Name</label>
+            <input type="text" name="full-name" id="name" required>
 
 
-<form action="includes/register-inc.php" method="post">
-    <input name="name" placeholder="Enter full name">
+            <label for="username">Username</label>
+            <input type="text" name="username" id="username" required>
 
-    <input name="username" placeholder="Enter your username">
+            <label for="email">Email</label>
+            <input type="text" name="email" id="email" required>
 
-    <input name="email" type="email" placeholder="Enter e-mail">
+            <label for="age">Age</label>
+            <input type="text" name="age" id="age" required>
 
-    <input name="password" type="password" placeholder="Enter password">
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" required>
 
-    <input name="password-confirm" type="password" placeholder="Confirm password">
-
-    <button value="Submit" name="submit" >Register</button>
-</form>
-
+            <label for="password-confirm">Password Confirm</label>
+            <input type="password" name="password-confirm" id="password-confirm" required>
+            <input type="submit"  name="submit" value="Register">
+        </div>
+    </form>
+</div>
 <?php
     require_once 'includes/footer.php';
 ?>
