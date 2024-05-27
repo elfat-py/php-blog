@@ -25,23 +25,39 @@ $row = mysqli_fetch_assoc($result);
                 <div class="col">
                     <label class="form-label">Full Name:</label>
                     <input type="text" class="form-control" name="full-name"
-                           value="<?php echo $row['user_full_name'] ?>">
+                           value="<?php
+                           if (isset($_SESSION['isAdmin']) && $_SESSION['isAdmin'] == true) {
+                               echo $row['user_full_name'];
+                           }
+                           ?>">
                 </div>
 
                 <div class="col">
                     <label class="form-label">Username:</label>
-                    <input type="text" class="form-control" name="username" value="<?php echo $row['username'] ?>">
+                    <input type="text" class="form-control" name="username" value="<?php
+                    if (isset($_SESSION['isAdmin']) && $_SESSION['isAdmin'] == true) {
+                        echo $row['username'];
+                    }
+                    ?>">
                 </div>
             </div>
 
             <div class="row mb-3">
                 <div class="col-sm-9">
                     <label class="form-label">Email:</label>
-                    <input type="email" class="form-control" name="email" value="<?php echo $row['email'] ?>">
+                    <input type="email" class="form-control" name="email" value="<?php
+                    if (isset($_SESSION['isAdmin']) && $_SESSION['isAdmin'] == true) {
+                        echo $row['email'];
+                    }
+                    ?>">
                 </div>
                 <div class="col-sm-3">
                     <label class="form-label">Age:</label>
-                    <input type="text" class="form-control" name="age" value="<?php echo $row['age'] ?>">
+                    <input type="text" class="form-control" name="age" value="<?php
+                    if (isset($_SESSION['isAdmin']) && $_SESSION['isAdmin'] == true) {
+                        echo $row['age'];
+                    }
+                    ?>">
                 </div>
             </div>
 
@@ -61,11 +77,19 @@ $row = mysqli_fetch_assoc($result);
                 <label>Admin privileges:</label>
                 &nbsp;
                 <input type="radio" class="form-check-input" name="isAdmin" id="YesAdm"
-                       value="Yes" <?php echo ($row["role"] == '1') ? "checked" : ""; ?>>
+                       value="Yes" <?php
+                if (isset($_SESSION['isAdmin']) && $_SESSION['isAdmin'] == true) {
+                    echo ($row["role"] == '1') ? "checked" : "";
+                }
+                ?>>
                 <label for="YesAdm" class="form-input-label">Yes</label>
                 &nbsp;
                 <input type="radio" class="form-check-input" name="isAdmin" id="NoAdm"
-                       value="No" <?php echo ($row["role"] == '0') ? "checked" : ""; ?>>
+                       value="No" <?php
+                if (isset($_SESSION['isAdmin']) && $_SESSION['isAdmin'] == true) {
+                    echo ($row["role"] == '0') ? "checked" : "";
+                }
+                ?>>
                 <label for="NoAdm" class="form-input-label">No</label>
             </div>
 
@@ -99,7 +123,6 @@ if (isset($_SESSION['isAdmin']) && $_SESSION['isAdmin'] == true) {
             $hashedPass = password_hash($password, PASSWORD_DEFAULT);
             $sql = "UPDATE `user` SET `user_full_name`='$user_full_name',`username`='$username',`email`='$email',`age`='$age',`password`='$hashedPass',`role`='$role' WHERE user_ID = $id";
             $result = mysqli_query($conn, $sql);
-
         }
         if ($result) {
             header("Location: ..admin.php?msg=Data changed succesfully");

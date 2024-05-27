@@ -55,6 +55,7 @@ if (isset($_POST['submit'])) {
                         $_SESSION['email'] = $row['email'];
                         $_SESSION['fullName'] = $row['user_full_name'];
                         $_SESSION['age'] = $row['age'];
+                        $_SESSION['user'] = $row['user_ID'];
 
                         header("Location: ../user.php?success=user.php");
                         exit();
