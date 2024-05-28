@@ -1,4 +1,5 @@
 <?php
+
     chdir('..');
     require_once 'includes/header.php';
 
@@ -11,10 +12,10 @@ if (isset($_SESSION['isAdmin']) && $_SESSION['isAdmin'] == true) {
     $result = mysqli_query($conn, $sql);
 
     if ($result) {
-        header("Location: admin.php?msg=Data deleted successfully");
+        header("Location: ../user?msg=Data deleted successfully");
     } else {
         echo "Failed: " . mysqli_error($conn);
     }
 }else{
-    header("Location: admin.php?msg=You are not admin not allowed!");
+    header("Location: /user.php?msg=You are not admin not allowed!");
 }

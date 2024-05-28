@@ -12,7 +12,7 @@ if (in_array($id, $user_posts)) {
     $sql = "DELETE FROM `post` WHERE  post_ID = $id";
     $result = mysqli_query($conn, $sql);
     if ($result) {
-        header("Location: user.php.php?msg=Data deleted successfully");
+        header("Location: ../user.php?msg=Data deleted successfully");
     } else {
         echo "Failed: " . mysqli_error($conn);
     }

@@ -9,8 +9,6 @@ $id = $_GET['user_ID'];
 $sql = "SELECT * FROM `user` WHERE user_ID = $id LIMIT 1";
 $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_assoc($result);
-
-
 ?>
 
 <div class="container">

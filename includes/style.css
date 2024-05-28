@@ -79,9 +79,9 @@ header {
   /*text-transform: 25px;*/
   margin-bottom: 0.4em;
 }
-span{
-  color: crimson;
-}
+/*span{*/
+/*  color: crimson;*/
+/*}*/
 
 .about-text p{
   color: #f30a0a;
@@ -172,4 +172,32 @@ span{
   .form-submit:hover {
     background-color: #0056b3;
   }
+
+
+
+
+
+
+
+  .adaptive-width {
+    display: inline-block;
+    white-space: nowrap;
+    padding: 0;
+    margin: 0;
+}
+
+.adaptive-width .list-group-item {
+    display: inline-block;
+    white-space: nowrap;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin: 0;
+    background-color: #f8f9fa;
+}
+
+.adaptive-width .list-group-item.active {
+    font-weight: bold;
+    background-color: #007bff;
+    color: white;
+}
 
