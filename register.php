@@ -1,6 +1,8 @@
 <?php
     require_once 'includes/header.php';
 ?>
+
+<!--<link rel="stylesheet" href="style.css">-->
 <div class="auth-form-container">
     <h1 class="auth-welcome">User registration page</h1>
 

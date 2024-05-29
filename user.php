@@ -75,7 +75,7 @@ if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == true) {
     <div class="container text-center">
         <div class="row align-items-center">
             <div class="col">
-                all post
+                <a href="all_posts.php" target="_blank" >All posts</a>
             </div>
             <div class="col">
                 admin posts
