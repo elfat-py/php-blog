@@ -78,10 +78,10 @@ if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == true) {
                 <a href="all_posts.php" target="_blank" >All posts</a>
             </div>
             <div class="col">
-                admin posts
+                <a href="includes/admin-post.php" target="_blank">Admin posts</a>
             </div>
             <div class="col">
-                my posts
+                <a href="user.php" target="_blank">My blog</a>
             </div>
         </div>
     </div>

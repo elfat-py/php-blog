@@ -1,16 +1,5 @@
 <?php
     require_once 'includes/header.php';
-//    require_once 'includes/style.css'
-?>
-
-<!--<form action="includes/login-inc.php" method="post">-->
-<!--    <input name="username1" placeholder="Enter username">-->
-<!--    <input name="password1" type="password" placeholder="Enter password">-->
-<!--    <button type="submit" name="submit" >Log in</button>-->
-<!--</form>-->
-<!---->
-<?php
-echo getcwd();
 ?>
 <div class="auth-form-container">
     <h1 class="auth-welcome">User log in page</h1>

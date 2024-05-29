@@ -102,7 +102,7 @@ if (isset($_SESSION['isAdmin']) && $_SESSION['isAdmin'] == true) {
                 $result = mysqli_query($conn, $sql);
 
                 if ($result) {
-                    header("Location: ..admin.php?msg=New record created successfully");
+                    header("Location: admin.php?msg=New record created successfully");
                 } else {
                     echo "Failed: " . mysqli_error($conn);
                 }
@@ -118,7 +118,7 @@ if (isset($_SESSION['isAdmin']) && $_SESSION['isAdmin'] == true) {
                     mysqli_stmt_execute($stmt);
                     mysqli_stmt_store_result($stmt);
 
-                    header('Location: ../admin.php?success=registered&username=' . $username);
+                    header('Location: admin.php?success=registered&username=' . $username);
                     exit();
                 }
             }

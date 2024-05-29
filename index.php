@@ -3,31 +3,22 @@
 
 ?>
 
-
-<?php
-
-if (isset($_SESSION['sessionId'])) {
-    echo '<h1 class="notify">You are home</h1>>';
-}
-else{
-    echo '<h1 class="notify">Please login to proceed!</h1>';
-
-}
-?>
     <div class="about_page">
         <section class="about">
             <div class="main_about">
                 <img src="includes/src/quote.png" alt="Elfat Memaj">
                 <div class="about-text">
-                    <h1>Ideology</h1>
-                    <h3>Provide for all <span>the best they can get</span></h3>
+                    <h1>WeBlog</h1>
+                    <h3 class="fw-lighter">Get inspired <span class="fw-light">&& inspire</span></h3>
                     <p>
-                        As of today's world every company or person that deals with direct selling main goal is to
-                        maximize the profit and get the most of their costumers. We don't think the same, providing the
-                        customer the
-                        best deal and letting them know the differences from a store to another and from a product to
-                        another is a must.
-                        That is our motto to show the difference and let the customer get the best deal they can get!!!
+                        Welcome to BlogSphere, the ultimate destination for aspiring bloggers!
+                        At BlogSphere, we believe everyone has a story to tell and a unique perspective to share.
+                        Our platform is designed to make blogging accessible and enjoyable for everyone,
+                        from novices to seasoned writers. With user-friendly tools, a supportive community,
+                        and a plethora of resources, BlogSphere helps you turn your thoughts into captivating blog posts.
+                        Whether you're passionate about travel, cooking, technology, or personal experiences,
+                        BlogSphere empowers you to express yourself and connect with like-minded individuals.
+                        Join us today and start your blogging journey with BlogSphere!
                     </p>
                     <button type="button">Got something to show?</button>
                     <button type="button" class="cv">Other products</button>
@@ -35,6 +26,16 @@ else{
             </div>
         </section>
     </div>
+
+<?php
+
+if (isset($_SESSION['sessionId'])) {
+    echo '<h3 class="notify">You are home</h3>>';
+}
+else{
+    echo '<h3 class="notify">Please login to proceed!</h3>';
+}
+?>
 <?php
 require_once 'includes/footer.php';
 ?>

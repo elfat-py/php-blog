@@ -1,5 +1,10 @@
 <?php
 require_once 'includes/header.php';
+
+
+?>
+
+<?php
 // Example query to get some data
 $sql = "SELECT * FROM users"; // Replace with your actual query
 $result = mysqli_query($conn, $sql);

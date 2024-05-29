@@ -13,7 +13,7 @@ else{
 }
 ?>
 
-<div class="container text-center gap-0 row-gap-0">
+<div class="text-center">
     <a href="includes/add-new.php"><button type="button" class="btn btn-primary d-flex justify-content-end">Add new user</button></a>
 
 
@@ -39,9 +39,7 @@ else{
         <div class="col-2 border border-light-subtle bg-secondary-subtle text-secondary-emphasisk-emphasis">
             Action
         </div>
-
     </div> <!-- END FIRST MAIN ROW-->
-
 
     <div class="row align-items-start d-flex align-items-start mb-2 bg-body-tertiary gap-0 row-gap-0">
         <?php
@@ -123,14 +121,8 @@ else{
             } //Closing tag for the while loop
         ?>
     </div>
+</div>
 
 <?php
-//if (isset($))
-//$id = $_GET["user_ID"];
-//$sql = "DELETE FROM `user` WHERE id = $id";
-//$result = mysqli_query($conn, $sql);
-
-
-
 require_once 'includes/footer.php';
-//?>
+?>
